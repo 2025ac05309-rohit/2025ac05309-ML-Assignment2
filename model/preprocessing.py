@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 
 
-def preprocess_data(file_path="../data/Dry_Bean_Dataset.csv", test_set_size=0.20, seed=42):
+def preprocess_data(file_path="./data/Dry_Bean_Dataset.csv", test_set_size=0.20, seed=42):
     # Load dataset
     print("Reading dataset...")
     df = pd.read_csv(file_path)
@@ -29,12 +29,13 @@ def preprocess_data(file_path="../data/Dry_Bean_Dataset.csv", test_set_size=0.20
     print("Encoding labels...")
     label_encoder = LabelEncoder()
     y = label_encoder.fit_transform(y)
-    print("Class Encoding:")
+    print("\nClass Encoding:")
+    print("----------------------")
     for index, class_name in enumerate(label_encoder.classes_):
         print(f"{class_name} --> {index}")
 
     # Train-test split
-    print(f"Splitting data into {int((1 - test_set_size) * 100)}% training and {int(test_set_size * 100)}% testing set...")
+    print(f"\nSplitting data into {int((1 - test_set_size) * 100)}% training and {int(test_set_size * 100)}% testing set...")
     X_train, X_test, y_train, y_test = train_test_split(
         X,
         y,

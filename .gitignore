@@ -2,3 +2,4 @@
 /data/DryBeanDataset
 /data/ObesityLevelsEstimation
 *.ipynb
+/model/__pycache__
