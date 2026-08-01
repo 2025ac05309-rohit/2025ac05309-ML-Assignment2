@@ -44,10 +44,10 @@ def preprocess_data(file_path="./data/Dry_Bean_Dataset.csv", test_set_size=0.20,
         stratify=y
     )
 
-    print("Saving 'test_data.csv'...")
+    print("Saving test_data.csv...")
     test_data = X_test.copy()
     test_data["Class"] = label_encoder.inverse_transform(y_test)
-    test_data.to_csv("../test_data.csv", index=False)
+    test_data.to_csv("./test_data.csv", index=False)
     print("Testing dataset file 'test_data.csv' created")
     
     # Feature scaling
