@@ -2,9 +2,12 @@ import pandas as pd
 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler
+from pathlib import Path
 
 
-def preprocess_data(file_path="./data/Dry_Bean_Dataset.csv", test_set_size=0.20, seed=42):
+def preprocess_data(file_path="./data/Dry_Bean_Dataset.csv",test_set_size=0.20,seed=42,save_test_csv=True):
+    BASE_DIR = Path(__file__).resolve().parent.parent
+    file_path = BASE_DIR / "data" / "Dry_Bean_Dataset.csv"
     # Load dataset
     print("Reading dataset...")
     df = pd.read_csv(file_path)
@@ -36,19 +39,14 @@ def preprocess_data(file_path="./data/Dry_Bean_Dataset.csv", test_set_size=0.20,
 
     # Train-test split
     print(f"\nSplitting data into {int((1 - test_set_size) * 100)}% training and {int(test_set_size * 100)}% testing set...")
-    X_train, X_test, y_train, y_test = train_test_split(
-        X,
-        y,
-        test_size=test_set_size,
-        random_state=seed,
-        stratify=y
-    )
+    X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=test_set_size,random_state=seed,stratify=y)
 
-    print("Saving test_data.csv...")
-    test_data = X_test.copy()
-    test_data["Class"] = label_encoder.inverse_transform(y_test)
-    test_data.to_csv("./test_data.csv", index=False)
-    print("Testing dataset file 'test_data.csv' created")
+    if save_test_csv:
+        print("Saving test_data.csv...")
+        test_data = X_test.copy()
+        test_data["Class"] = label_encoder.inverse_transform(y_test)
+        test_data.to_csv("./test_data.csv", index=False)
+        print("test_data.csv created successfully")
     
     # Feature scaling
     print("Performing feature scaling...")
