@@ -1,4 +1,5 @@
 import pandas as pd
+import streamlit as st
 
 from model.evaluation import evaluate_model
 from model.preprocessing import preprocess_data
@@ -9,6 +10,7 @@ from model.knn import knn_model
 from model.naive_bayes import naive_bayes_model
 from model.random_forest import random_forest_model
 
+@st.cache_resource
 def main():
     (X_train,X_test,X_train_scaled,X_test_scaled,y_train,y_test,scaler,label_encoder) = preprocess_data()
     
