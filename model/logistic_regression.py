@@ -1,5 +1,6 @@
 from sklearn.linear_model import LogisticRegression
 
+@st.cache_resource
 def logistic_regression_model(X_train_scaled,y_train):
 
     # Create Model
