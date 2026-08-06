@@ -104,15 +104,14 @@ The following metrics were used for evaluating every model:
 
 Clone the repository:
 
-```bash
-git clone https://github.com/<your-github-username>/2025ac06309-ML-Assignment2.git
-```
+````bash
+git clone https://github.com/2025ac05309-rohit/2025ac06309-ML-Assignment2
 
 Move into the project directory:
 
 ```bash
 cd 2025ac06309-ML-Assignment2
-```
+````
 
 Install the required dependencies:
 
@@ -153,12 +152,8 @@ The deployed Streamlit application includes:
 
 ## Author
 
-Rohit Banik
-
+**ROHIT BANIK**
 **BITS ID:** 2025AC06309
-
 Machine Learning Assignment – 2
-
 M.Tech (Artificial Intelligence & Machine Learning)
-
 BITS Pilani WILP
