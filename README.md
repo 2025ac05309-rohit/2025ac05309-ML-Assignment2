@@ -104,14 +104,15 @@ The following metrics were used for evaluating every model:
 
 Clone the repository:
 
-````bash
+```bash
 git clone https://github.com/2025ac05309-rohit/2025ac06309-ML-Assignment2
+```
 
 Move into the project directory:
 
 ```bash
 cd 2025ac06309-ML-Assignment2
-````
+```
 
 Install the required dependencies:
 
