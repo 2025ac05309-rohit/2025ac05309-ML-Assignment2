@@ -201,11 +201,11 @@ if run_model:
 
         st.subheader("📋 Confusion Matrix")
 
-        fig, ax = plt.subplots(figsize=(4, 3.8))
+        fig, ax = plt.subplots(figsize=(4, 4))
 
         cm = results["Confusion Matrix"]
 
-        image = ax.imshow(cm, cmap="Blues")
+        image = ax.imshow(cm, cmap="Greens")
 
         ax.set_xticks(range(len(label_encoder.classes_)))
         ax.set_yticks(range(len(label_encoder.classes_)))
@@ -259,7 +259,7 @@ if run_model:
         st.dataframe(
             report_df,
             width="stretch",
-            height=340
+            height="content"
         )
     
     # Model Summary
