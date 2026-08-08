@@ -66,11 +66,10 @@ with col3: st.info("**Features**\n\n16")
 
 st.divider()
 
-# Model Selection + Upload + Run
-
 st.subheader("⚙️ Model Evaluation")
 
 left, right = st.columns([1, 1])
+# Upload 
 with left:
     with st.container(border=True):
         uploaded_file = st.file_uploader(
@@ -79,6 +78,8 @@ with left:
         )
         if uploaded_file is not None:
             st.success(f"✅ {uploaded_file.name}")
+# Model Selection
+# Run
 with right:
     with st.container(border=True):
         selected_model = st.selectbox(
@@ -109,21 +110,17 @@ if uploaded_file is not None:
 st.divider()
 
 
-
 # Run Selected Model
 if run_model:
     if uploaded_file is None:
         st.warning("Please upload test_data.csv before continuing.")
         st.stop()
 
-    # with st.spinner("Training model and evaluating..."):
     progress = st.progress(0, text="Loading dataset...")
     # Prepare Training Data
     (X_train,X_test,X_train_scaled,X_test_scaled,y_train,y_test,scaler,label_encoder) = preprocess_data(save_test_csv=False)
 
     progress.progress(25, text="Reading uploaded dataset...")
-    # Read Uploaded Test Dataset
-    # test_df = pd.read_csv(uploaded_file)
     X_uploaded = test_df.drop("Class", axis=1)
     y_uploaded = label_encoder.transform(test_df["Class"])
 
@@ -230,7 +227,6 @@ if run_model:
 
         for i in range(cm.shape[0]):
             for j in range(cm.shape[1]):
-
                 ax.text(
                     j,
                     i,

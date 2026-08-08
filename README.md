@@ -2,7 +2,7 @@
 
 ## Problem Statement
 
-The objective of this project is to perform multi-class classification of dry bean seeds using supervised machine learning algorithms. The project compares the performance of multiple classification models on the Dry Bean Dataset using various evaluation metrics and provides an interactive Streamlit web application for model evaluation.
+The project objective is to perform multi-class classification on Dry Bean Dataset using supervised machine learning algorithms. The application compares the performance of multiple classification models on the Dry Bean Dataset using various evaluation metrics and provides an interactive Streamlit web UI to upload test dataset for model evaluation.
 
 ---
 
